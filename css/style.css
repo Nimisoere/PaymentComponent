@@ -1,0 +1,140 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.options {
+    padding-right: 0px;
+}
+
+.details {
+    padding-left: 0px;
+}
+
+.payment-component {
+    border: #DDD thin solid;
+    box-shadow: #DDD 0px 0px 3px;
+    background-color: #EEE;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.payment-options > ul {
+    margin-bottom: 0px;
+}
+
+    .payment-options > ul > li {
+        border-left: 0px;
+        position: relative;
+    }
+
+        .payment-options > ul > li.active {
+            color: #FFF;
+            border-color: #003767;
+            background-color: #003767;
+        }
+
+            .payment-options > ul > li.active > a {
+                color: #FFF;
+            }
+
+        .payment-options > ul > li > a {
+            color: #3e3e3e;
+        }
+
+            .payment-options > ul > li > a:hover, .payment-options > ul > li > a:active, .payment-options > ul > li > a:visited, .payment-options > ul > li > a:focus {
+                text-decoration: none;
+            }
+
+            .payment-options > ul > li > a > h5 {
+                font-weight: bold;
+                font-size: 115%;
+            }
+
+        .payment-options > ul > li:first-child, .payment-options > ul > li:last-child {
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+        }
+
+.payment-option-details .tab-pane {
+    padding: 10px 15px;
+    background-color: #FFF;
+    border-radius: 0px 4px 4px 0px;
+}
+
+.payment-option-details {
+    border-left: #DDD thin solid;
+    min-height: 250px;
+}
+
+.ins-subheader {
+    font-weight: bold;
+    padding: 10px 0px;
+    border-bottom: #a6e1ec thin solid;
+}
+
+.ins-toggle {
+    cursor: pointer;
+}
+
+.ins-subheader .fa-li {
+    top: 1em;
+}
+
+.instructions hr {
+    margin-top: 10px;
+}
+
+.instruction {
+    display: none;
+}
+
+.success-icon {
+    color: green;
+    vertical-align: middle;
+}
+
+.rating-star {
+    color: green;
+    cursor: pointer;
+    font-size: 120%;
+}
+
+.card-form .form-group {
+    border: #DDD thin solid;
+    border-radius: 3px;
+    padding: 2%;
+}
+
+.card-form .form-control {
+    border: none;
+    border-radius: 0px;
+    padding: 0px;
+    box-shadow: none;
+}
+
+.card-form .input-group-addon {
+    background: none;
+    border: none;
+    border-radius: 0px;
+}
+
+
+.validation.text-danger:after {
+    content: 'Validation failed';
+}
+
+.validation.text-success:after {
+    content: 'Validation passed';
+}
+
+.card-form .has-error {
+    border-width: 1px;
+    border-color: red;
+}

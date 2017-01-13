@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://use.fontawesome.com/6e40765922.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="fa-ul">
+                    <li>
+                        <i class="fa fa-li fa-2x success-icon fa-check-circle" aria-hidden="true"></i>
+                        <h3> Thank you for you Order <span class="bold">John Doe!</span></h3>
+
+                        <h4>
+                            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                            An Email notification has been sent to <span class="bold">johndoe@mail.com</span>
+                        </h4>
+                    </li>
+                </ul>
+
+
+                <hr />
+                <div class="row rating">
+                    <div class="col-xs-12">
+                        <h4>
+                            Rate your experience: <span id="stars" class="starrr"></span>
+                        </h4>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Booking Summary</h3>
+                    </div>
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <dt>Transaction ID</dt>
+                            <dd>3z667</dd>
+                            <dt>Amount Payable</dt>
+                            <dd>NGN 23,000</dd>
+                            <dt>Transaction Status</dt>
+                            <dd>Pending</dd>
+                        </dl>
+                        <div class="alert alert-info">
+                            <h5 class="bold text-uppercase">Important Notice</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In feugiat enim eros, a facilisis dui venenatis a. Donec viverra urna quis nisl ultricies, a tincidunt nunc maximus. In semper vulputate ex, ut euismod augue. </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <a href="" class="btn btn-success">Finish</a>
+                    </div>
+                </div>
+
+                <!--<div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Terms and Conditions</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                            <li>Nam vestibulum justo et lacus dictum, sed pharetra metus lacinia</li>
+                            <li>Suspendisse id nibh a purus imperdiet fringilla</li>
+                            <li>
+                                Nullam tempor lacus sit amet lectus placerat scelerisque
+                            </li>
+                            <li>Pellentesque varius lorem sit amet maximus dignissim</li>
+                            <li>Curabitur at ipsum non leo feugiat aliquam at et lorem</li>
+                            <li>Sed pharetra nisi ut dui tempor convallis</li>
+                            <li>Sed ullamcorper quam sed nisi dapibus, sed feugiat eros viverra</li>
+                        </ul>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/starrating.js"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+</body>
+</html>
