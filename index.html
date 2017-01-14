@@ -106,7 +106,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-xs-12 text-right">
-                                                    <button type="submit" href="" class="btn btn-success">Make Payment <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                                                    <button onclick="validform()" class="btn btn-success">Make Payment <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -149,8 +149,8 @@
                                                                         <div class="form-group">
                                                                             <label>Card Number</label>
                                                                             <div class="input-group">
-                                                                                <input type="tel" class="form-control cc-number" placeholder="9999 9999 9999 9999" aria-describedby="basic-addon2" autocomplete="cc-number">
-                                                                                <span class="input-group-addon" id="basic-addon2"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
+                                                                                <input type="tel" class="form-control cc-number card-inputs" maxlength="19" placeholder="9999 9999 9999 9999" aria-describedby="basic-addon2" autocomplete="cc-number">
+                                                                                <span class="input-group-addon cc-brand" id="basic-addon2"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -159,13 +159,13 @@
                                                                     <div class="col-xs-6">
                                                                         <div class="form-group">
                                                                             <label>Exp. Date</label>
-                                                                            <input type="tel" class="form-control cc-exp" autocomplete="cc-exp" placeholder="MM/YYYY" />
+                                                                            <input type="tel" class="form-control  card-inputs cc-exp" autocomplete="cc-exp" placeholder="MM/YY" maxlength="7" />
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xs-6">
                                                                         <div class="form-group">
                                                                             <label>CVV <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="The CVV is the 3 Digit security code at the back of your card"></i></label>
-                                                                            <input type="tel" class="form-control cc-cvc" autocomplete="off" placeholder="000" />
+                                                                            <input type="tel" class="form-control cc-cvc card-inputs" maxlength="4" autocomplete="off" placeholder="000" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -174,7 +174,7 @@
                                                                         <div class="checkbox">
                                                                             <label>
                                                                                 <input type="checkbox" />
-                                                                                <i class="fa fa-shield" aria-hidden="true"></i> Save details for future payment <small><a href="">(View privacy policy)</a></small>
+                                                                                <i class="fa fa-shield" aria-hidden="true"></i> Save details for future payment <small><a href="#" target="_blank">(View privacy policy)</a></small>
                                                                             </label>
                                                                         </div>
 
@@ -271,7 +271,7 @@
 
                 <div class="row">
                     <div class="col-xs-12 text-center">
-                        <a href="" class="btn btn-success">Finish</a>
+                        <a href="" class="btn btn-success finish-btn">Finish</a>
                     </div>
                 </div>
 
@@ -321,12 +321,14 @@
                 }
             });
             $('#confirmation').fadeOut();
-            $("button[type='submit']").click(function () {
-                $('#payment').fadeOut(function () {
-                    $('#confirmation').fadeIn();
-                })
-            })
-            $('[data-toggle="tooltip"]').tooltip();
+            //$("button[type='submit']").click(function () {
+            //    $('#payment').fadeOut(function () {
+            //        $('#confirmation').fadeIn();
+            //    })
+            //});
+            $('body').tooltip({
+                selector: '[data-toggle="tooltip"]'
+            });
             $('.payment-options > ul > li a').click(function (e) {
                 //get selected href
                 var href = $(this).attr('href');
@@ -341,7 +343,7 @@
                 $('.tab-pane').removeClass('active');
                 $('.tab-pane' + href).addClass('active');
 
-            })
+            });
         });
     </script>
 </body>
