@@ -109,7 +109,7 @@ body {
 .card-form .form-group {
     border: #DDD thin solid;
     border-radius: 3px;
-    padding: 2%;
+    padding: 2% 4%;
 }
 
 .card-form .form-control {
@@ -139,15 +139,30 @@ body {
     border-color: red;
 }
 
+.card-form .form-control:focus {
+    box-shadow: none;
+}
+
+.cc-brand .fa {
+    font-size: 18px;
+}
+
+#confirmation {
+    display: none;
+}
 
 
 @media only screen and (max-width: 767px) {
     /* For mobile phones: */
     .options {
-    padding-right: 15px;
-}
+        padding-right: 15px;
+    }
 
-.details {
-    padding-left: 15px;
-}
+    .finish-btn {
+        width: 100%;
+    }
+
+    .details {
+        padding-left: 15px;
+    }
 }
