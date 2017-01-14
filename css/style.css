@@ -138,3 +138,16 @@ body {
     border-width: 1px;
     border-color: red;
 }
+
+
+
+@media only screen and (max-width: 767px) {
+    /* For mobile phones: */
+    .options {
+    padding-right: 15px;
+}
+
+.details {
+    padding-left: 15px;
+}
+}
