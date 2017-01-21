@@ -1,7 +1,7 @@
 ﻿function validform() {
     $('#payment').fadeOut(function () {
-        window.scrollTo(0, 0);
         $('#confirmation').show().addClass('animated slideInUp');
+        window.scrollTo(0, 0);
     })
 }
 
