@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <script src="https://use.fontawesome.com/6e40765922.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -17,37 +18,37 @@
     <![endif]-->
 </head>
 <body>
-    <div class="container" id="payment">
+    <div class="container animated slideInUp" id="payment">
         <div class="row">
             <div class="col-xs-12">
                 <div class="payment-wrapper">
                     <div class="row">
                         <div class="col-xs-12">
-                            <h3>Please select a payment method</h3>
-                            <hr />
+                            <h3 class="form-header">Please select a payment method</h3>
                         </div>
                     </div>
-                    <div class="payment-component">
-                        <div class="row">
+                    <div class="">
+                        <div class="row payment-component">
                             <div class="col-md-3 col-sm-4 options hidden-xs">
                                 <div class="payment-options">
                                     <!-- Nav tabs -->
                                     <ul class="list-group" role="tablist">
-                                        <li role="presentation" class="list-group-item">
-                                            <a href="#bank" class="active payment-option" aria-controls="home" role="tab" data-toggle="tab">
-                                                <i class="fa fa-university fa-2x pull-left"></i>
-                                                <h5 class="list-group-item-heading">Bank Payment</h5>
-                                                <p class="list-group-item-text">N 23,000</p>
-                                            </a>
-                                        </li>
                                         <li role="presentation" class="list-group-item active">
-                                            <a href="#cards" class="payment-option" aria-controls="home" role="tab" data-toggle="tab">
+                                            <a href="#cards" id="cardoption" class="payment-option" aria-controls="paymentoptions" role="tab" data-toggle="tab">
                                                 <i class="fa fa-credit-card fa-2x pull-left"></i>
                                                 <h5 class="list-group-item-heading">Credit/Debit Cards</h5>
-                                                <p class="list-group-item-text">N 24,000 <small>(*Fees included)</small></p>
+                                                <p class="list-group-item-text">&#x20a6; 24,000 <small>(*Fees included)</small></p>
 
                                             </a>
                                         </li>
+                                        <li role="presentation" class="list-group-item">
+                                            <a href="#bank" id="bankoption" class="active payment-option" aria-controls="paymentoptions" role="tab" data-toggle="tab">
+                                                <i class="fa fa-university fa-2x pull-left"></i>
+                                                <h5 class="list-group-item-heading">Bank Payment</h5>
+                                                <p class="list-group-item-text">&#x20a6; 23,000</p>
+                                            </a>
+                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -56,12 +57,129 @@
                                     <div class="tab-content">
                                         <div class="mobile-pane-toggle payment-options hidden-sm hidden-md hidden-lg">
                                             <ul class="list-group" role="tablist">
-                                                <li role="presentation" class="list-group-item">
-                                                    <a href="#bank" class="active payment-option" aria-controls="home" role="tab" data-toggle="tab">
-                                                        <i class="fa fa-university fa-2x pull-left"></i>
-                                                        <h5 class="list-group-item-heading">Bank Payment</h5>
-                                                        <p class="list-group-item-text">N 23,000</p>
+                                                <li role="presentation" class="list-group-item active">
+
+                                                    <a href="#cards" class="payment-option" aria-controls="home" role="tab" data-toggle="tab">
+                                                        <div class="row">
+                                                            <div class="col-xs-10">
+                                                                <i class="fa fa-credit-card fa-2x pull-left"></i>
+                                                                <h5 class="list-group-item-heading">Credit/Debit Cards</h5>
+                                                                <p class="list-group-item-text">&#x20a6; 24,000 <small>(*Fees included)</small></p>
+                                                            </div>
+                                                            <div class="col-xs-2 toggle-icons text-right">
+                                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                                            </div>
+                                                        </div>
                                                     </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane active" id="cards">
+                                            <div class="row hidden-xs">
+                                                <div class="col-xs-12">
+                                                    <p class="card-icons-top">
+                                                        <i class="fa fa-cc-mastercard fa-2x" aria-hidden="true"></i> <i class="fa fa-cc-visa fa-2x" aria-hidden="true"></i> <i class="fa fa-cc-amex fa-2x" aria-hidden="true"></i> <i class="fa fa-cc-discover fa-2x" aria-hidden="true"></i> and more...
+                                                    </p>
+                                                    <h4>
+                                                        Pay Using Credit/Debit Cards <small>(Verified by Visa or Secure Code Required)</small>
+                                                    </h4>
+                                                    <p class="text-info">
+                                                        <small>*NB: For Nigerian cards, All cards that have their PINS changed at the ATM can also be used</small>
+                                                    </p>
+                                                    <hr />
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="panel panel-default cardpaymentform">
+                                                        <div class="panel-body">
+                                                            <form novalidate autocomplete="on" method="POST" class="card-form">
+                                                                <div class="row">
+                                                                    <div class="col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>Card Number</label>
+                                                                            <div class="input-group">
+                                                                                <input type="tel" class="form-control cc-number card-inputs" maxlength="19" placeholder="9999 9999 9999 9999" aria-describedby="cc-brand" autocomplete="cc-number">
+                                                                                <span class="input-group-addon cc-brand" id="cc-brand"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xs-6">
+                                                                        <div class="form-group">
+                                                                            <label>Exp. Date</label>
+                                                                            <input type="tel" class="form-control  card-inputs cc-exp" id="cc-exp" autocomplete="cc-exp" placeholder="MM/YY" maxlength="7" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-6">
+                                                                        <div class="form-group">
+                                                                            <label>CVV <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="The CVV is the 3 Digit security code at the back of your card"></i></label>
+                                                                            <input type="tel" class="form-control cc-cvc card-inputs" maxlength="4" id="cc-cvc" autocomplete="off" placeholder="000" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12">
+                                                                        <div class="checkbox">
+                                                                            <label for="saveDetails">
+                                                                                <input type="checkbox" id="saveDetails" />
+                                                                                <i class="fa fa-shield" aria-hidden="true"></i> Save details for future payment <small><a href="#" target="_blank">(View privacy policy)</a></small>
+                                                                            </label>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12">
+                                                                        <button type="submit" id="cardPayBtn" class="btn btn-warning pay-btn btn-block">Make Payment</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="panel panel-default">
+                                                        <table class="table table-bordered table-condensed summary-table">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Transaction Fee</td>
+                                                                    <td>&#x20a6; 23,000</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Convenience fee</td>
+                                                                    <td>&#x20a6; 1,000</td>
+                                                                </tr>
+                                                                <tr class="">
+                                                                    <td class="bold">Total</td>
+                                                                    <td><h4 class="bold">&#x20a6; 24,000</h4></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mobile-pane-toggle payment-options hidden-sm hidden-md hidden-lg">
+                                            <ul class="list-group" role="tablist">
+                                                <li role="presentation" class="list-group-item">
+
+                                                    <a href="#bank" class="active payment-option" aria-controls="home" role="tab" data-toggle="tab">
+                                                        <div class="row">
+                                                            <div class="col-xs-10">
+                                                                <i class="fa fa-university fa-2x pull-left"></i>
+                                                                <h5 class="list-group-item-heading">Bank Payment</h5>
+                                                                <p class="list-group-item-text">&#x20a6; 23,000</p>
+                                                            </div>
+                                                            <div class="col-xs-2 toggle-icons text-right">
+                                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
                                                 </li>
                                             </ul>
                                         </div>
@@ -76,27 +194,52 @@
                                                         <ul class="fa-ul instructions">
                                                             <li>
                                                                 <div>
-                                                                    <p class="ins-subheader ins-toggle"><i class="fa-li fa fa-plus" aria-hidden="true"></i>Online Transfer</p>
+                                                                    <p class="ins-subheader ins-toggle" id="banktype1"><i class="fa-li fa fa-plus" aria-hidden="true"></i>Online Transfer</p>
+
+                                                                    <div class="instruction">
+                                                                        <p>
+                                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur malesuada mi vitae augue vestibulum, ut eleifend quam aliquet.
+                                                                        </p>
+
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <p class="bold">Account Details</p>
+                                                                                <ul>
+                                                                                    <li><span class="bold">Account Name: </span>Lorem ipsum dolor sit amet.</li>
+                                                                                    <li><span class="bold">Account Number: </span>0056368199</li>
+                                                                                    <li><span class="bold">Bank: </span>Diamond Bank</li>
+                                                                                </ul>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <p class="bold">Steps to follow</p>
+                                                                                <ul>
+                                                                                    <li><span class="bold">Step 1: </span>Lorem ipsum dolor sit amet.</li>
+                                                                                    <li><span class="bold">Step 2: </span>Lorem ipsum dolor sit amet.</li>
+                                                                                    <li><span class="bold">Step 3: </span>Lorem ipsum dolor sit amet.</li>
+                                                                                    <li><span class="bold">Step 4: </span>Lorem ipsum dolor sit amet.</li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div>
+                                                                    <p class="ins-subheader ins-toggle" id="banktype2"><i class="fa-li fa fa-plus" aria-hidden="true"></i>Quickteller</p>
 
                                                                     <p class="instruction">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur malesuada mi vitae augue vestibulum, ut eleifend quam aliquet. Suspendisse nulla ante, bibendum vel molestie sed, tincidunt nec turpis. Sed posuere enim odio, vel tristique leo rutrum non. Etiam pharetra arcu eu fermentum accumsan. Duis accumsan nunc blandit ex sodales, et commodo arcu luctus. Nam luctus ornare odio eget efficitur.</p>
                                                                 </div>
                                                             </li>
                                                             <li>
                                                                 <div>
-                                                                    <p class="ins-subheader ins-toggle"><i class="fa-li fa fa-plus" aria-hidden="true"></i>Quickteller</p>
-
+                                                                    <p class="ins-subheader ins-toggle" id="banktype3"><i class="fa-li fa fa-plus" aria-hidden="true"></i>Bank Branch / Office premise</p>
                                                                     <p class="instruction">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur malesuada mi vitae augue vestibulum, ut eleifend quam aliquet. Suspendisse nulla ante, bibendum vel molestie sed, tincidunt nec turpis. Sed posuere enim odio, vel tristique leo rutrum non. Etiam pharetra arcu eu fermentum accumsan. Duis accumsan nunc blandit ex sodales, et commodo arcu luctus. Nam luctus ornare odio eget efficitur.</p>
                                                                 </div>
                                                             </li>
                                                             <li>
                                                                 <div>
-                                                                    <p class="ins-subheader ins-toggle"><i class="fa-li fa fa-plus" aria-hidden="true"></i>Bank Branch</p>
-                                                                    <p class="instruction">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur malesuada mi vitae augue vestibulum, ut eleifend quam aliquet. Suspendisse nulla ante, bibendum vel molestie sed, tincidunt nec turpis. Sed posuere enim odio, vel tristique leo rutrum non. Etiam pharetra arcu eu fermentum accumsan. Duis accumsan nunc blandit ex sodales, et commodo arcu luctus. Nam luctus ornare odio eget efficitur.</p>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div>
-                                                                    <p class="ins-subheader ins-toggle"><i class="fa-li fa fa-plus" aria-hidden="true"></i>ATM</p>
+                                                                    <p class="ins-subheader ins-toggle" id="banktype4"><i class="fa-li fa fa-plus" aria-hidden="true"></i>ATM</p>
                                                                     <p class="instruction">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur malesuada mi vitae augue vestibulum, ut eleifend quam aliquet. Suspendisse nulla ante, bibendum vel molestie sed, tincidunt nec turpis. Sed posuere enim odio, vel tristique leo rutrum non. Etiam pharetra arcu eu fermentum accumsan. Duis accumsan nunc blandit ex sodales, et commodo arcu luctus. Nam luctus ornare odio eget efficitur.</p>
                                                                 </div>
                                                             </li>
@@ -106,116 +249,22 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-xs-12 text-right">
-                                                    <button onclick="validform()" class="btn btn-success">Make Payment <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                                                    <button onclick="validform()" id="bankPayment" class="btn btn-warning pay-btn">Make Payment <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="mobile-pane-toggle payment-options hidden-sm hidden-md hidden-lg">
-                                            <ul class="list-group" role="tablist">
-                                                <li role="presentation" class="list-group-item active">
-                                                    <a href="#cards" class="payment-option" aria-controls="home" role="tab" data-toggle="tab">
-                                                        <i class="fa fa-credit-card fa-2x pull-left"></i>
-                                                        <h5 class="list-group-item-heading">Credit/Debit Cards</h5>
-                                                        <p class="list-group-item-text">N 24,000 <small>(*Fees included)</small></p>
-
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div role="tabpanel" class="tab-pane active" id="cards">
-                                            <div class="row">
-                                                <div class="col-xs-12">
-                                                    <p>
-                                                        <i class="fa fa-cc-mastercard fa-2x" aria-hidden="true"></i> <i class="fa fa-cc-visa fa-2x" aria-hidden="true"></i> <i class="fa fa-cc-amex fa-2x" aria-hidden="true"></i> <i class="fa fa-cc-discover fa-2x" aria-hidden="true"></i> and more...
-                                                    </p>
-                                                    <h4>
-                                                        Pay Using Credit/Debit Cards <small>(Verified by Visa or Secure Code Required)</small>
-                                                    </h4>
-                                                    <p class="text-info">
-                                                        <small>*NB: For Nigerian cards, All cards that have their PINS changed at the ATM can also be used</small>
-                                                    </p>
-                                                    <hr />
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="panel panel-default">
-
-                                                        <div class="panel-body">
-                                                            <form novalidate autocomplete="on" method="POST" class="card-form">
-                                                                <div class="row">
-                                                                    <div class="col-xs-12">
-                                                                        <div class="form-group">
-                                                                            <label>Card Number</label>
-                                                                            <div class="input-group">
-                                                                                <input type="tel" class="form-control cc-number card-inputs" maxlength="19" placeholder="9999 9999 9999 9999" aria-describedby="basic-addon2" autocomplete="cc-number">
-                                                                                <span class="input-group-addon cc-brand" id="basic-addon2"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-xs-6">
-                                                                        <div class="form-group">
-                                                                            <label>Exp. Date</label>
-                                                                            <input type="tel" class="form-control  card-inputs cc-exp" autocomplete="cc-exp" placeholder="MM/YY" maxlength="7" />
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-xs-6">
-                                                                        <div class="form-group">
-                                                                            <label>CVV <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="The CVV is the 3 Digit security code at the back of your card"></i></label>
-                                                                            <input type="tel" class="form-control cc-cvc card-inputs" maxlength="4" autocomplete="off" placeholder="000" />
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-xs-12">
-                                                                        <div class="checkbox">
-                                                                            <label>
-                                                                                <input type="checkbox" />
-                                                                                <i class="fa fa-shield" aria-hidden="true"></i> Save details for future payment <small><a href="#" target="_blank">(View privacy policy)</a></small>
-                                                                            </label>
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-xs-12">
-                                                                        <button type="submit" class="btn btn-success btn-block">Make Payment</button>
-                                                                    </div>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <table class="table table-bordered table-condensed">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>Transaction Fee</td>
-                                                                <td>N 23,000</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Convenience fee</td>
-                                                                <td>N 1,000</td>
-                                                            </tr>
-                                                            <tr class="">
-                                                                <td class="bold">Total</td>
-                                                                <td><h4 class="bold">N 24,000</h4></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-
-                                                </div>
-                                            </div>
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="text-center"><i class="fa fa-lock text-success" aria-hidden="true"></i> Secure payment module</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -246,7 +295,7 @@
                         </div>
                     </div>
                     <hr />
-                    <div class="panel panel-default">
+                    <div class="panel panel-default transaction-summary">
                         <div class="panel-heading">
                             <h3 class="panel-title">Booking Summary</h3>
                         </div>
@@ -255,44 +304,22 @@
                                 <dt>Transaction ID</dt>
                                 <dd>3z667</dd>
                                 <dt>Amount Payable</dt>
-                                <dd>NGN 23,000</dd>
+                                <dd>&#x20a6; 23,000</dd>
                                 <dt>Transaction Status</dt>
                                 <dd>Pending</dd>
                             </dl>
                             <div class="alert alert-info">
                                 <h5 class="bold text-uppercase">Important Notice</h5>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In feugiat enim eros, a facilisis dui venenatis a. Donec viverra urna quis nisl ultricies, a tincidunt nunc maximus. In semper vulputate ex, ut euismod augue. </p>
-
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 text-center">
-                            <a href="" class="btn btn-success finish-btn">Finish</a>
+                            <a href="" class="btn btn-warning btn-lg finish-btn" id="finishPayment">Finish</a>
                         </div>
                     </div>
-                    <!--<div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Terms and Conditions</h3>
-                        </div>
-                        <div class="panel-body">
-                            <ul>
-                                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                                <li>Nam vestibulum justo et lacus dictum, sed pharetra metus lacinia</li>
-                                <li>Suspendisse id nibh a purus imperdiet fringilla</li>
-                                <li>
-                                    Nullam tempor lacus sit amet lectus placerat scelerisque
-                                </li>
-                                <li>Pellentesque varius lorem sit amet maximus dignissim</li>
-                                <li>Curabitur at ipsum non leo feugiat aliquam at et lorem</li>
-                                <li>Sed pharetra nisi ut dui tempor convallis</li>
-                                <li>Sed ullamcorper quam sed nisi dapibus, sed feugiat eros viverra</li>
-                            </ul>
-                        </div>
-                    </div>-->
-
                 </div>
-
             </div>
         </div>
     </div>
@@ -304,46 +331,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/3.0.0/jquery.payment.min.js"></script>
     <script src="js/starrating.js"></script>
     <script src="js/paymentform.js"></script>
-    <script>
-        $(function () {
-            $('.ins-toggle').click(function () {
-                $('.ins-toggle').not(this).next('.instruction').slideUp();
-                $(".ins-toggle").not(this).children('i').addClass('fa-plus');
-                $(".ins-toggle").not(this).children('i').removeClass('fa-minus');
-                $(this).next('.instruction').slideToggle();
-                if ($(this).children('i').hasClass('fa-plus')) {
-                    $(this).children('i').addClass('fa-minus');
-                    $(this).children('i').removeClass('fa-plus');
-                } else {
-                    $(this).children('i').removeClass('fa-minus');
-                    $(this).children('i').addClass('fa-plus');
-                }
-            });
-            $('#confirmation').fadeOut();
-            //$("button[type='submit']").click(function () {
-            //    $('#payment').fadeOut(function () {
-            //        $('#confirmation').fadeIn();
-            //    })
-            //});
-            $('body').tooltip({
-                selector: '[data-toggle="tooltip"]'
-            });
-            $('.payment-options > ul > li a').click(function (e) {
-                //get selected href
-                var href = $(this).attr('href');
-
-                //set all nav tabs to inactive
-                $('.payment-options > ul > li').removeClass('active');
-
-                //get all nav tabs matching the href and set to active
-                $('.payment-options > ul > li a[href="' + href + '"]').closest('li').addClass('active');
-
-                //active tab
-                $('.tab-pane').removeClass('active');
-                $('.tab-pane' + href).addClass('active');
-
-            });
-        });
-    </script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>

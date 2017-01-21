@@ -1,6 +1,6 @@
 ﻿function validform() {
     $('#payment').fadeOut(function () {
-        $('#confirmation').fadeIn();
+        $('#confirmation').show().addClass('animated slideInUp');
     })
 }
 
@@ -79,7 +79,6 @@ jQuery(function ($) {
         $('.cc-number').toggleInputError(!$.payment.validateCardNumber($('.cc-number').val()));
         $('.cc-exp').toggleInputError(!$.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal')));
         $('.cc-cvc').toggleInputError(!$.payment.validateCardCVC($('.cc-cvc').val(), cardType));
-        //$('.cc-brand').text(cardType);
         $('.validation').removeClass('text-danger text-success');
         $('.validation').addClass($('.has-error').length ? 'text-danger' : 'text-success');
         var cardnoValid = $.payment.validateCardNumber($('.cc-number').val());
@@ -88,6 +87,11 @@ jQuery(function ($) {
         var valid = cardnoValid && cardexpValid && cardCvcValid;
         if (valid) {
             validform()
+            $('.cardpaymentform').removeClass('animated shake');
+        } else {
+            $(".cardpaymentform").bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function () {
+                $(this).removeClass("animated shake");
+            }).addClass("animated shake");
         }
     });
 });

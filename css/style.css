@@ -2,6 +2,18 @@
 
 body {
     font-family: 'Raleway', sans-serif;
+    background-color: #F7F7F7;
+}
+
+.loader {
+    position: fixed;
+    margin: 0 auto;
+    background-color: #F7F7F7;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+    z-index: 9999;
+    cursor: wait;
 }
 
 .bold {
@@ -9,20 +21,28 @@ body {
 }
 
 .options {
-    padding-right: 0px;
+    padding: 0px;
 }
 
 .details {
-    padding-left: 0px;
+    padding: 0px;
 }
 
 .payment-component {
     border: #DDD thin solid;
-    box-shadow: #DDD 0px 0px 3px;
     background-color: #EEE;
-    margin-bottom: 20px;
+    margin: 10px auto;
     border-radius: 4px;
 }
+
+.payment-options > ul > li.active, .payment-options > ul > li.active:focus, .payment-options > ul > li.active:hover {
+    background-color: #003767;
+    border-color: #003767;
+}
+
+    .payment-options > ul > li.active .list-group-item-text, .payment-options > ul > li.active:focus .list-group-item-text, .payment-options > ul > li.active:hover .list-group-item-text {
+        color: inherit;
+    }
 
 .payment-options > ul {
     margin-bottom: 0px;
@@ -39,19 +59,19 @@ body {
             background-color: #003767;
         }
 
-            .payment-options > ul > li.active > a {
+            .payment-options > ul > li.active a {
                 color: #FFF;
             }
 
-        .payment-options > ul > li > a {
+        .payment-options > ul > li a {
             color: #3e3e3e;
         }
 
-            .payment-options > ul > li > a:hover, .payment-options > ul > li > a:active, .payment-options > ul > li > a:visited, .payment-options > ul > li > a:focus {
+            .payment-options > ul > li a:hover, .payment-options > ul > li a:active, .payment-options > ul > li > a:visited, .payment-options > ul > li a:focus {
                 text-decoration: none;
             }
 
-            .payment-options > ul > li > a > h5 {
+            .payment-options > ul > li a h5 {
                 font-weight: bold;
                 font-size: 115%;
             }
@@ -73,6 +93,35 @@ body {
     min-height: 250px;
 }
 
+.card-icons-top {
+    margin-top: 20px;
+}
+
+.transaction-summary {
+    border-color: #003767;
+}
+
+    .transaction-summary .panel-heading {
+        border-color: #003767;
+        background-color: #003767;
+    }
+
+    .transaction-summary .panel-title {
+        color: #FFF;
+    }
+
+.pay-btn {
+    margin-bottom: 10px;
+    background-color: #E8870C;
+    border-color: #E8870C;
+}
+
+    .pay-btn:hover {
+        margin-bottom: 10px;
+        background-color: #E8870C;
+        border-color: #E8870C;
+    }
+
 .ins-subheader {
     font-weight: bold;
     padding: 10px 0px;
@@ -93,6 +142,9 @@ body {
 
 .instruction {
     display: none;
+    background-color: #FFF;
+    padding: 15px;
+    border-radius: 4px;
 }
 
 .success-icon {
@@ -151,21 +203,48 @@ body {
     display: none;
 }
 
-.confirmation{
+.confirmation {
     padding-bottom: 40px;
+}
+
+.finish-btn {
+    background-color: #E8870C;
+    border-color: #E8870C;
+}
+
+.toggle-icons {
+    padding-top: 10px;
 }
 
 @media only screen and (max-width: 767px) {
     /* For mobile phones: */
-    .options {
-        padding-right: 15px;
+
+    .pay-btn {
+        width: 100%;
+    }
+
+    .payment-option-details {
+        border-left: none;
+        min-height: inherit;
+    }
+
+    .payment-options > ul > li:first-child {
+        border-radius: 0px;
     }
 
     .finish-btn {
         width: 100%;
     }
 
-    .details {
-        padding-left: 15px;
+    .form-header {
+        font-size: 20px;
     }
+
+    .cardpaymentform {
+        border: none;
+    }
+
+        .cardpaymentform .panel-body {
+            padding: 10px 0px;
+        }
 }
