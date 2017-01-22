@@ -23,9 +23,13 @@
 ### Technologies Used
 
 **UI Framework:** Bootstrap
+
 **Styling:** Traditional CSS
+
 **Form Vaidation:** JQuery
+
 **Animation:** CSS (Animate.css)
+
 **Icons:** Font Awesome
 
 ### Thank You
