@@ -2,6 +2,8 @@
 
 ### Design Rationale
 
+**Preview:** https://nimisoere.github.io/PaymentComponent/
+
 **Scalable:** The form has been designed to be scalable and configurable. *i.e. Accommodating as many options as possible, with room for various price rules*
 
 **Trust and Transparency:** Receiving payments need to earn the trust of individuals, hence the use of recognized icons
